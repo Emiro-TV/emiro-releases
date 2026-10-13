@@ -1,0 +1,23 @@
+Emiro
+Copyright (c) 2026 Philip Jacobs. All rights reserved.
+
+The packages published here are proprietary software. They may be downloaded, installed and used
+free of charge. No part of them may be modified, redistributed, sublicensed or made available to
+third parties except under a separate written agreement with the copyright holder.
+
+The name "Emiro" and the Emiro logo are held by Philip Jacobs. No right to use them is granted.
+
+Third-party components
+----------------------
+
+The packages contain third-party components that are licensed under their own terms, which take
+precedence over the terms above for the components they cover. A running Emiro server lists every
+one of them, with its license text, under "Licenses" in the account menu.
+
+Some of these components - the FFmpeg libraries among them - are licensed under the GNU Lesser
+General Public License. For those components, nothing in the terms above restricts the rights that
+license grants. In particular, you may modify the software for your own use and reverse engineer
+it to the extent needed to debug such modifications, and you may replace the LGPL libraries the
+software loads with modified versions of them. The complete corresponding source code of each LGPL
+component, including any changes made to it, is listed on the same page and can be downloaded from
+it.
