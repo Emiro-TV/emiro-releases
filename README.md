@@ -5,13 +5,30 @@ holds only the built packages, published by the build of each component.
 
 | Tag | What it is |
 |---|---|
-| `server-v<version>` | The Emiro server, as a QNAP package (`.qpkg`, x86-64). |
+| `server-v<version>` | The Emiro server, in every package below, with `SHA256SUMS`. |
 | `m3u-v<version>` | The M3U/XMLTV live TV plugin, as a zip for the server's plugin directory. |
 
-## Installing
+## Installing the server
 
-- **QNAP:** App Center → Install Manually → choose the `.qpkg`.
-- **Plugin:** in the Emiro admin interface, Plugins → upload the zip, then reload the plugins.
+| Platform | File | |
+|---|---|---|
+| Windows 10/11, x86-64 or ARM | `emiro-<version>-windows-<amd64\|arm64>.zip` | Unpack anywhere, start `emiro.cmd`. |
+| macOS 13+, Apple silicon or Intel | `emiro-<version>-macos-<arm64\|amd64>.tar.gz` | Unpack, then `xattr -dr com.apple.quarantine emiro-*` and `./emiro`. The build is not signed. |
+| Ubuntu 24.04 | `emiro_<version>-1_<amd64\|arm64>.deb` | `sudo apt install ./emiro_<version>-1_<arch>.deb` |
+| Fedora 44 | `emiro-<version>-1.<x86_64\|aarch64>.rpm` | `sudo dnf install ./emiro-<version>-1.<arch>.rpm` |
+| QNAP QTS / QuTS hero 5.0+ | `Emiro_<version>_<x86_64\|arm_64>.qpkg` | App Center → Install Manually. |
+
+The server listens on port 1810: open `http://<machine>:1810` to set it up. On Linux it runs as the
+systemd service `emiro`, with its settings in `/etc/emiro/emiro.conf` and its data in
+`/var/lib/emiro`.
+
+Transcoding needs a GPU: Intel (QuickSync), NVIDIA (NVENC), AMD (VAAPI, Linux only) or Apple
+(VideoToolbox). Without one, and on Windows on ARM, the server plays what a client can take and
+remuxes the rest.
+
+## Installing a plugin
+
+In the Emiro admin interface, Plugins → upload the zip, then reload the plugins.
 
 ## License
 
